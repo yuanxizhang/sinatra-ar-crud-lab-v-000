@@ -25,8 +25,8 @@ class ApplicationController < Sinatra::Base
 
   # "CREATE", part of the C in CRUD
   post '/articles' do 
-  	@article = Article.create(title: params[:title], content: params[:content])	
-  	redirect to '/articles/@article.id'
+  	@article = Article.create(params)	
+  	redirect to '/articles/#{Article.last.id}'
   end
 
   # "SHOW", part of the R in CRUD
@@ -47,7 +47,7 @@ class ApplicationController < Sinatra::Base
   	@article.title = params[:title]
   	@article.content = params[:content]
   	@article.save
-    redirect "/articles/#{@article.id}"
+    redirect to "/articles/#{@article.id}"
   end 
 
   # "DELETE", the D in CRUD
