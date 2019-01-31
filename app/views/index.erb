@@ -1,4 +1,4 @@
-<h1>Articles in the Magazine</h1>
+<h1>Magazine App</h1>
 <a href="/articles/new">Add a new article</a>
 <table>
   <thead>
@@ -6,7 +6,8 @@
       <th>ID</th>
       <th>Title</th>
       <th>Content</th>
-      <th></th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -18,9 +19,11 @@
 		  <td><%= article.content %></td>
 		  <td>
 		    <a href="/articles/<%= article.id %>/edit">Edit</a>
+		  </td>
+		  <td>
 		    <form action="/articles/<%= article.id%>/delete" method="post">
 				<input id="hidden" type="hidden" name="_method" value="delete">
-				<input type="submit" name="delete">
+				<input type="submit" name="delete" value="delete">
 			</form>
 		  </td>
 		</tr>

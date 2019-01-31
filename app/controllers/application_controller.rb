@@ -7,17 +7,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-
-  get '/' do 
-      
-  end
   
-  # "INDEX", part of "R" in CRUD
-  get '/articles' do
-  	@articles = Article.all
-  	erb :index
-  end
-
   # "NEW", part of the C in CRUD
   get '/article/new' do 
   	erb :new 
@@ -25,8 +15,19 @@ class ApplicationController < Sinatra::Base
 
   # "CREATE", part of the C in CRUD
   post '/articles' do 
-  	@article = Article.create(params)	
-  	redirect to '/articles/#{Article.last.id}'
+  	@a = Article.new(title: params[:title], content: params[:content])
+  	@a.save
+  	redirect to "/articles/#{@a.id}"
+  end
+  
+  # "INDEX", part of "R" in CRUD
+  get '/articles' do
+  	@articles = Article.all
+  	erb :index
+  end
+  
+  get '/' do 
+    erb :index  
   end
 
   # "SHOW", part of the R in CRUD

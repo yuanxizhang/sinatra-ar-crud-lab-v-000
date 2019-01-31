@@ -1,7 +1,8 @@
-<form method="POST" action="/articles" id="new_article">
-	  <h2>New Article Title:</h2> 
-	  <input type="text" id="a_title" name="title">
-	  <p>New Article Content:</p>
-	  <p><input type="text" id="a_content" name="content"></p>
-	  <input type="submit" name="submit" value="submit">
+<h1>Add a new article</h1>
+<form action="/articles" method="post">
+      <label for="a_title">Title of the new article:</label>
+      <input type="text" id="a_title" name="title">
+      <label for="a_content">Your content here:</label>
+      <input type="text" id="a_content" name="content">
+      <input type="submit" name="submit" value="Add!">
 </form>
