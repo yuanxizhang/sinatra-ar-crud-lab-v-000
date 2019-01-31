@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   end
   
   # "NEW", part of the C in CRUD
-  get '/article/new' do 
+  get '/articles/new' do 
   	erb :new 
   end 
 
