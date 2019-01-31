@@ -8,8 +8,12 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   
+  get '/' do 
+    erb :index  
+  end
+  
   # "NEW", part of the C in CRUD
-  get '/article/new' do 
+  get '/articles/new' do 
   	erb :new 
   end 
 
@@ -24,10 +28,6 @@ class ApplicationController < Sinatra::Base
   get '/articles' do
   	@articles = Article.all
   	erb :index
-  end
-  
-  get '/' do 
-    erb :index  
   end
 
   # "SHOW", part of the R in CRUD
